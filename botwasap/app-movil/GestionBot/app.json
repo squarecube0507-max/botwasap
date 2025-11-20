@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "GestionBot",
+    "slug": "gestionbot",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tuempresa.gestionbot"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.tuempresa.gestionbot",
+      "permissions": [
+        "CAMERA"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Permite a $(PRODUCT_NAME) acceder a tu cámara para escanear códigos de barras."
+        }
+      ],
+      "expo-font"
+    ],
+    "packagerOpts": {
+      "hostType": "lan"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9d4f464a-0281-4bcb-92c4-8f3dce979fe4"
+      }
+    }
+  }
+}
