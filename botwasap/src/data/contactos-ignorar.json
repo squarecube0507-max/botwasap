@@ -1,0 +1,13 @@
+{
+  "contactos_ignorar": [
+    "5491112345678@c.us",
+    "5491187654321@c.us",
+    "5491168679222@c.us"
+  ],
+  "notas": {
+    "formato": "Usa el formato: código_país + código_área + número + @c.us",
+    "ejemplo_argentina": "5491112345678@c.us (549 + 11 + número)",
+    "ejemplo_grupos": "Para ignorar grupos usa: 123456789@g.us",
+    "instrucciones": "Agrega aquí los números de familia, amigos, etc. que NO quieres que el bot responda"
+  }
+}

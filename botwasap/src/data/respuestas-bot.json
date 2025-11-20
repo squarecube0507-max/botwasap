@@ -1,0 +1,34 @@
+{
+  "saludos": {
+    "bienvenida": "¡Hola{cliente_frecuente}! 👋 Bienvenido a *{nombre_negocio}*\n\n{info_cliente}Te puedo ayudar con:\n📋 Lista de precios\n🕐 Horarios\n📍 Ubicación\n📦 Stock de productos\n🛒 Hacer un pedido\n💳 Medios de pago{historial_pedidos}\n\n¿Qué necesitas?",
+    "despedida": "🙏 ¡Gracias por tu preferencia!\n\n¿Deseas hacer un nuevo pedido? 🛒"
+  },
+  "consultas": {
+    "horarios": "🕐 *Horarios de Atención*\n\n{horarios}",
+    "ubicacion": "📍 *Nuestra Ubicación*\n\n{direccion}\n\nTe esperamos! 😊",
+    "medios_pago": "💳 *Medios de Pago:*\n\n{medios_pago}",
+    "contacto": "📞 *Contacto*\n\nWhatsApp: {whatsapp}\nTeléfono: {telefono}\n\n¡Estamos para ayudarte! 😊",
+    "stock": "📦 Para consultar stock específico, escribe el nombre del producto.\n\nEjemplo: \"Hay cuadernos A4?\"",
+    "lista_categorias": "📋 *Categorías Disponibles:*\n\n📚 Librería\n🎉 Cotillón\n🧸 Juguetería\n📄 Fotocopiadora\n🖨️ Impresiones personalizadas\n💍 Bijou\n📱 Accesorios celular\n💻 Accesorios computadora\n\nPara hacer un pedido, escribe por ejemplo:\n\"Quiero 2 cuadernos y 5 lapiceras\""
+  },
+  "pedidos": {
+    "carrito_vacio": "🛒 Tu carrito está vacío\n\nPara hacer un pedido, escribe por ejemplo:\n\"Quiero 2 cuadernos\" o \"Dame 5 lapiceras\"",
+    "productos_encontrados": "🔍 *Encontré estos productos:*\n\n{lista_productos}\n\n¿Es correcto este pedido?\n\n• Escribe *\"si\"* para agregarlo al carrito\n• Escribe *\"no\"* para cancelar",
+    "productos_agregados": "✅ Productos agregados al carrito\n\n💡 ¿Deseas agregar más productos?\n• Escribe otro pedido (ej: \"3 lapiceras\")\n• O escribe *\"confirmar\"* para finalizar",
+    "pedido_confirmado": "✅ *PEDIDO CONFIRMADO*\n\n📄 Número de pedido: *#{numero_pedido}*\n\n🙏 ¡Gracias por tu compra!",
+    "carrito_cancelado": "✅ Carrito vaciado correctamente\n\nPara hacer un nuevo pedido, escribe por ejemplo:\n\"Quiero 2 cuadernos\"",
+    "sin_stock": "❌ No puedo agregar estos productos porque están SIN STOCK:\n\n{productos_sin_stock}\n\n¿Deseas continuar solo con los productos disponibles? (si/no)"
+  },
+  "errores": {
+    "no_entiendo": "No entendí bien tu consulta 🤔\n\nPuedes preguntarme sobre:\n• Precios y productos\n• Hacer un pedido (ej: \"Quiero 2 cuadernos\")\n• Ver mis pedidos anteriores\n• Horarios de atención\n• Ubicación del local\n• Stock disponible\n• Medios de pago\n\n¿En qué te puedo ayudar?",
+    "sin_productos_carrito": "❌ No tienes productos en el carrito.\n\nPara hacer un pedido, escribe por ejemplo:\n\"Quiero 2 cuadernos\"",
+    "numero_invalido": "❌ Número de producto inválido",
+    "opcion_invalida": "❌ Opción no válida.\n\nResponde *\"1\"* para retiro o *\"2\"* para delivery"
+  },
+  "comandos_dueño": {
+    "bot_pausado": "⏸️ *RESPUESTAS AUTOMÁTICAS PAUSADAS*\n\nEl bot NO responderá a los clientes.\nTú puedes seguir controlándolo.\n\nPara reanudar: \"reanudar bot\"",
+    "bot_reactivado": "▶️ *RESPUESTAS AUTOMÁTICAS REACTIVADAS*\n\nEl bot volverá a responder a los clientes automáticamente.\n\nPara pausar: \"pausar bot\"",
+    "notificaciones_activadas": "✅ *Notificaciones ACTIVADAS*\n\nRecibirás un mensaje automático cada vez que un cliente confirme un pedido.\n\nPara desactivar: \"desactivar notificaciones\"",
+    "notificaciones_desactivadas": "🔕 *Notificaciones DESACTIVADAS*\n\nYa no recibirás mensajes automáticos de nuevos pedidos.\n\nPara activar: \"activar notificaciones\""
+  }
+}

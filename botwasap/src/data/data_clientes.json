@@ -1,0 +1,8 @@
+{
+  "clientes": [],
+  "estadisticas": {
+    "total_clientes": 0,
+    "total_pedidos": 0,
+    "total_vendido": 0
+  }
+}
