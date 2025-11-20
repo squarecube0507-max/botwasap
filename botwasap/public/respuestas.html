@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💬 Editor de Respuestas - Bot WhatsApp</title>
+    <link rel="stylesheet" href="css/respuestas.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-content">
+            <h1>💬 Editor de Respuestas del Bot</h1>
+            <div class="header-actions">
+                <button onclick="window.location.href='/'" class="btn-secondary">
+                    🏠 Dashboard
+                </button>
+                <button onclick="window.location.href='productos.html'" class="btn-secondary">
+                    📦 Productos
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <!-- ACCIONES PRINCIPALES -->
+        <div class="acciones-principales">
+            <button onclick="guardarRespuestas()" class="btn-primary">
+                💾 Guardar Cambios
+            </button>
+            <button onclick="confirmarRestaurar()" class="btn-danger">
+                🔄 Restaurar por Defecto
+            </button>
+            <button onclick="previsualizarRespuesta()" class="btn-secondary">
+                👁️ Vista Previa
+            </button>
+        </div>
+
+        <!-- INFO -->
+        <div class="info-box">
+            <h3>ℹ️ Variables Disponibles</h3>
+            <div class="variables-grid">
+                <div class="variable">
+                    <code>{nombre_negocio}</code>
+                    <span>Nombre del negocio</span>
+                </div>
+                <div class="variable">
+                    <code>{horarios}</code>
+                    <span>Horarios de atención</span>
+                </div>
+                <div class="variable">
+                    <code>{direccion}</code>
+                    <span>Dirección del local</span>
+                </div>
+                <div class="variable">
+                    <code>{whatsapp}</code>
+                    <span>Número de WhatsApp</span>
+                </div>
+                <div class="variable">
+                    <code>{telefono}</code>
+                    <span>Teléfono de contacto</span>
+                </div>
+                <div class="variable">
+                    <code>{medios_pago}</code>
+                    <span>Medios de pago disponibles</span>
+                </div>
+                <div class="variable">
+                    <code>{numero_pedido}</code>
+                    <span>Número del pedido</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="cambiarTab('saludos')">
+                👋 Saludos
+            </button>
+            <button class="tab-btn" onclick="cambiarTab('consultas')">
+                ❓ Consultas
+            </button>
+            <button class="tab-btn" onclick="cambiarTab('pedidos')">
+                🛒 Pedidos
+            </button>
+            <button class="tab-btn" onclick="cambiarTab('errores')">
+                ❌ Errores
+            </button>
+            <button class="tab-btn" onclick="cambiarTab('comandos_dueño')">
+                👑 Comandos Dueño
+            </button>
+        </div>
+
+        <!-- TAB CONTENT -->
+        <div id="respuestas-container" class="respuestas-container">
+            <div style="text-align: center; padding: 40px; color: #718096;">
+                <p>⏳ Cargando respuestas...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CONFIRMACIÓN -->
+    <div id="modalConfirmar" class="modal">
+        <div class="modal-content">
+            <h2>⚠️ Confirmar Acción</h2>
+            <p id="mensajeConfirmar"></p>
+            <div class="modal-actions">
+                <button onclick="cerrarModal('modalConfirmar')" class="btn-secondary">
+                    Cancelar
+                </button>
+                <button id="btnConfirmarAccion" class="btn-primary">
+                    Confirmar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL VISTA PREVIA -->
+    <div id="modalPreview" class="modal">
+        <div class="modal-content modal-preview">
+            <div class="modal-header">
+                <h2>👁️ Vista Previa</h2>
+                <button onclick="cerrarModal('modalPreview')" class="btn-close">✕</button>
+            </div>
+            <div class="preview-container">
+                <div class="whatsapp-preview">
+                    <div class="whatsapp-header">
+                        <div class="avatar">🤖</div>
+                        <div class="contact-info">
+                            <div class="contact-name">Bot WhatsApp</div>
+                            <div class="contact-status">en línea</div>
+                        </div>
+                    </div>
+                    <div class="whatsapp-messages" id="previewMessages">
+                        <!-- Mensajes de vista previa -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICACIÓN -->
+    <div id="notificacion" class="notificacion"></div>
+
+    <!-- ✅ JAVASCRIPT CARGADO AL FINAL -->
+    <script src="js/respuestas.js"></script>
+</body>
+</html>

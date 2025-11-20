@@ -1,0 +1,135 @@
+{
+  "juguetes": {
+    "peluches": {
+      "peluche_mediano": {
+        "precio": 35000,
+        "stock": true
+      },
+      "peluche_pequeno": {
+        "precio": 20002,
+        "stock": true
+      }
+    },
+    "juegos_de_mesa": {
+      "uno": {
+        "precio": 2500,
+        "stock": true
+      }
+    },
+    "auto": {
+      "auto_a_control_remoto": {
+        "stock": true,
+        "precio": 23000,
+        "unidad": "c/u",
+        "imagenes": []
+      }
+    }
+  },
+  "impresiones": {
+    "copias": {
+      "impresion_blanco_negro": {
+        "precio_desde": 50,
+        "unidad": "por hoja",
+        "stock": true
+      },
+      "impresion_color": {
+        "precio_desde": 100,
+        "unidad": "por hoja",
+        "stock": true
+      }
+    },
+    "anillados": {
+      "anillado_simple": {
+        "precio": 300,
+        "stock": true,
+        "imagenes": []
+      },
+      "anillado_doble": {
+        "precio": 500,
+        "stock": true
+      }
+    }
+  },
+  "libreria": {
+    "cuadernos": {},
+    "cartucheras": {
+      "cartuchera_simple": {
+        "precio": 2500,
+        "stock": true
+      },
+      "cartuchera_doble": {
+        "precio": 1200,
+        "stock": true
+      }
+    },
+    "escolar": {
+      "cuadernillo_universitario": {
+        "stock": true,
+        "precio": 2500
+      },
+      "lapicera_bic": {
+        "stock": true,
+        "precio": 200
+      }
+    }
+  },
+  "varios": {
+    "aseo_personal": {
+      "talco": {
+        "stock": true,
+        "precio": 2300,
+        "codigo_barras": "7791293044477"
+      }
+    }
+  },
+  "higiene": {
+    "alcohol": {
+      "alcohol_etilico": {
+        "stock": true,
+        "precio": 2300,
+        "imagenes": []
+      },
+      "alcohol": {
+        "stock": true,
+        "precio": 5300,
+        "codigo_barras": "7796551000042",
+        "imagenes": [
+          {
+            "url": "https://res.cloudinary.com/dhgcwck7a/image/upload/v1763517065/gestionbot/productos/higiene/alcohol/higiene::alcohol::alcohol_1763517064533.jpg",
+            "public_id": "gestionbot/productos/higiene/alcohol/higiene::alcohol::alcohol_1763517064533"
+          },
+          {
+            "url": "https://res.cloudinary.com/dhgcwck7a/image/upload/v1763559662/gestionbot/productos/higiene/alcohol/higiene::alcohol::alcohol_1763559661474.jpg",
+            "public_id": "gestionbot/productos/higiene/alcohol/higiene::alcohol::alcohol_1763559661474",
+            "width": 1000,
+            "height": 1000,
+            "format": "jpg",
+            "subida": "2025-11-19T13:41:04.023Z"
+          }
+        ]
+      }
+    }
+  },
+  "accesorio_para_celular": {
+    "cargador": {
+      "cargador_de_iphone": {
+        "stock": true,
+        "precio": 45000
+      }
+    }
+  },
+  "parlantes": {
+    "bluetooth": {
+      "parlante_bluetooth": {
+        "stock": true,
+        "precio": 350000
+      }
+    },
+    "parlante": {
+      "parlante": {
+        "stock": true,
+        "precio": 3000
+      }
+    }
+  }
+}

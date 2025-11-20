@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📦 Editor de Productos - Bot WhatsApp</title>
+    <link rel="stylesheet" href="css/productos.css">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-content">
+                <h1>📦 Gestión de Productos</h1>
+                <div class="header-actions">
+                    <button onclick="window.location.href='http://localhost:3001'" class="btn-secondary">
+                        🏠 Dashboard
+                    </button>
+                    <button onclick="mostrarModalNuevoProducto()" class="btn-primary">
+                        ➕ Nuevo Producto
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- FILTROS -->
+        <div class="filtros">
+            <div class="filtro-busqueda">
+                <input type="text" id="buscarProducto" placeholder="🔍 Buscar productos..." onkeyup="filtrarProductos()">
+            </div>
+            <div class="filtro-categoria">
+                <select id="filtroCategoria" onchange="filtrarProductos()">
+                    <option value="">📁 Todas las categorías</option>
+                </select>
+            </div>
+            <div class="filtro-stock">
+                <select id="filtroStock" onchange="filtrarProductos()">
+                    <option value="">📦 Todo el stock</option>
+                    <option value="con-stock">✅ Con stock</option>
+                    <option value="sin-stock">❌ Sin stock</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- ESTADÍSTICAS -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div class="stat-info">
+                    <div class="stat-label">Total Productos</div>
+                    <div class="stat-value" id="totalProductos">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📁</div>
+                <div class="stat-info">
+                    <div class="stat-label">Categorías</div>
+                    <div class="stat-value" id="totalCategorias">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <div class="stat-label">Con Stock</div>
+                    <div class="stat-value" id="totalConStock">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">❌</div>
+                <div class="stat-info">
+                    <div class="stat-label">Sin Stock</div>
+                    <div class="stat-value" id="totalSinStock">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTÓN AGREGAR CATEGORÍA -->
+        <div class="categoria-actions">
+            <button onclick="mostrarModalNuevaCategoria()" class="btn-secondary">
+                ➕ Nueva Categoría
+            </button>
+        </div>
+
+        <!-- LISTA DE PRODUCTOS POR CATEGORÍA -->
+        <div id="listaProductos" class="productos-container">
+            <div class="loading">Cargando productos...</div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- MODAL NUEVO/EDITAR PRODUCTO -->
+    <!-- ═══════════════════════════════════════ -->
+    <div id="modalProducto" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="tituloModal">➕ Nuevo Producto</h2>
+                <button class="btn-close" onclick="cerrarModal('modalProducto')">✕</button>
+            </div>
+            <form id="formProducto" onsubmit="guardarProducto(event)">
+                <div class="form-group">
+                    <label for="categoria">Categoría *</label>
+                    <select id="categoria" required>
+                        <option value="">Seleccionar categoría...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="subcategoria">Subcategoría *</label>
+                    <input type="text" id="subcategoria" placeholder="Ej: escolar, fiesta, etc." required>
+                    <small style="color: #718096; display: block; margin-top: 5px; font-size: 13px;">
+                        💡 Puedes usar espacios y mayúsculas (se normalizarán automáticamente)
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombreProducto">Nombre del Producto *</label>
+                    <input type="text" id="nombreProducto" placeholder="Ej: Cuaderno A4" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tipoPrecio">Tipo de Precio</label>
+                        <select id="tipoPrecio" onchange="cambiarTipoPrecio()">
+                            <option value="fijo">Precio Fijo</option>
+                            <option value="desde">Precio Desde</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="grupoPrecioFijo">
+                        <label for="precio">Precio ($) *</label>
+                        <input type="number" id="precio" placeholder="1500" step="0.01" min="0">
+                    </div>
+
+                    <div class="form-group" id="grupoPrecioDesde" style="display: none;">
+                        <label for="precioDesde">Precio Desde ($) *</label>
+                        <input type="number" id="precioDesde" placeholder="1500" step="0.01" min="0">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="unidad">Unidad (opcional)</label>
+                        <input type="text" id="unidad" placeholder="c/u, x10, kg, etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stockProducto">Stock</label>
+                        <select id="stockProducto">
+                            <option value="true">✅ Disponible</option>
+                            <option value="false">❌ Sin stock</option>
+                        </select>
+                    </div>
+                </div>
+
+                <input type="hidden" id="productoId">
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="cerrarModal('modalProducto')">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        💾 Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- MODAL NUEVA CATEGORÍA -->
+    <!-- ═══════════════════════════════════════ -->
+    <div id="modalCategoria" class="modal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h2>➕ Nueva Categoría</h2>
+                <button class="btn-close" onclick="cerrarModal('modalCategoria')">✕</button>
+            </div>
+            <form onsubmit="guardarCategoria(event)">
+                <div class="form-group">
+                    <label for="nombreCategoria">Nombre de la Categoría *</label>
+                    <input type="text" id="nombreCategoria" placeholder="Ej: Librería, Cotillón" required>
+                    <small style="color: #718096; display: block; margin-top: 5px; font-size: 13px;">
+                        💡 Puedes usar espacios, mayúsculas y tildes
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombreSubcategoria">Primera Subcategoría *</label>
+                    <input type="text" id="nombreSubcategoria" placeholder="Ej: Escolar, Fiesta" required>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="cerrarModal('modalCategoria')">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        ✅ Crear
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- MODAL EDITAR CATEGORÍA -->
+    <!-- ═══════════════════════════════════════ -->
+    <div id="modalEditarCategoria" class="modal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h2>✏️ Editar Categoría</h2>
+                <button class="btn-close" onclick="cerrarModal('modalEditarCategoria')">✕</button>
+            </div>
+            <form onsubmit="guardarNombreCategoria(event)">
+                <input type="hidden" id="categoriaActualId">
+                
+                <div class="form-group">
+                    <label>Nombre actual:</label>
+                    <p id="categoriaActualNombre" style="font-weight: bold; color: #667eea; margin: 10px 0; padding: 10px; background: #f7fafc; border-radius: 6px;"></p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="nuevoNombreCategoria">Nuevo nombre: *</label>
+                    <input 
+                        type="text" 
+                        id="nuevoNombreCategoria" 
+                        placeholder="Ej: Accesorios para Celular"
+                        required
+                    >
+                    <small style="color: #718096; display: block; margin-top: 8px; font-size: 13px;">
+                        💡 Puedes usar espacios, mayúsculas y tildes. Se convertirán automáticamente al formato correcto.
+                    </small>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="cerrarModal('modalEditarCategoria')">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        ✅ Guardar Cambios
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- MODAL CONFIRMACIÓN ELIMINAR -->
+    <!-- ═══════════════════════════════════════ -->
+    <div id="modalEliminar" class="modal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h2>⚠️ Confirmar Eliminación</h2>
+                <button class="btn-close" onclick="cerrarModal('modalEliminar')">✕</button>
+            </div>
+            <div class="modal-body">
+                <p id="mensajeEliminar"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="cerrarModal('modalEliminar')">
+                    Cancelar
+                </button>
+                <button type="button" class="btn-danger" id="btnConfirmarEliminar">
+                    🗑️ Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICACIÓN -->
+    <div id="notificacion" class="notificacion"></div>
+
+    <script src="js/productos.js"></script>
+</body>
+</html>

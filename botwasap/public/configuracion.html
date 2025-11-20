@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚙️ Configuración - Bot WhatsApp</title>
+    <link rel="stylesheet" href="css/configuracion.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-content">
+            <h1>⚙️ Configuración del Negocio</h1>
+            <div class="header-actions">
+                <button onclick="window.location.href='/'" class="btn-secondary">
+                    🏠 Dashboard
+                </button>
+                <button onclick="window.location.href='productos.html'" class="btn-secondary">
+                    📦 Productos
+                </button>
+                <button onclick="window.location.href='respuestas.html'" class="btn-secondary">
+                    💬 Respuestas
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <!-- ACCIONES PRINCIPALES -->
+        <div class="acciones-principales">
+            <button onclick="guardarConfiguracion()" class="btn-primary">
+                💾 Guardar Todos los Cambios
+            </button>
+            <button onclick="recargarConfiguracion()" class="btn-secondary">
+                🔄 Recargar
+            </button>
+        </div>
+
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="cambiarTab('negocio')">
+                🏪 Datos del Negocio
+            </button>
+            <button class="tab-btn" onclick="cambiarTab('pedidos')">
+                📦 Pedidos y Delivery
+            </button>
+            <button class="tab-btn" onclick="cambiarTab('palabras')">
+                🔑 Palabras Clave
+            </button>
+        </div>
+
+        <!-- TAB CONTENT: NEGOCIO -->
+        <div id="tab-negocio" class="tab-content active">
+            <div class="config-section">
+                <h2>📋 Información Básica</h2>
+                
+                <div class="form-group">
+                    <label for="nombre">Nombre del Negocio *</label>
+                    <input type="text" id="nombre" placeholder="Ej: Mi Librería" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp *</label>
+                        <input type="text" id="whatsapp" placeholder="+54 9 11 1234-5678" required>
+                        <small>Formato: +54 9 11 1234-5678</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" id="telefono" placeholder="(011) 1234-5678">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <textarea id="direccion" rows="2" placeholder="Av. Principal 123, Ciudad"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="horarios">Horarios de Atención</label>
+                    <textarea id="horarios" rows="3" placeholder="Lunes a Viernes: 9:00 - 18:00&#10;Sábados: 9:00 - 13:00"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="medios_pago">Medios de Pago</label>
+                    <textarea id="medios_pago" rows="3" placeholder="Efectivo&#10;Tarjeta de débito/crédito&#10;Transferencia bancaria"></textarea>
+                </div>
+            </div>
+
+            <div class="config-section">
+                <h2>👑 Configuración del Dueño</h2>
+                
+                <div class="form-group">
+                    <label for="numero_dueno">Número del Dueño (con @c.us)</label>
+                    <input type="text" id="numero_dueno" placeholder="5491112345678@c.us">
+                    <small>El bot responderá a comandos especiales desde este número</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="grupo_notificaciones">Grupo de Notificaciones (opcional)</label>
+                    <input type="text" id="grupo_notificaciones" placeholder="120363012345678901@g.us">
+                    <small>ID del grupo donde se enviarán las notificaciones de pedidos</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT: PEDIDOS -->
+        <div id="tab-pedidos" class="tab-content">
+            <div class="config-section">
+                <h2>🚚 Delivery</h2>
+                
+                <div class="form-check">
+                    <input type="checkbox" id="delivery_habilitado">
+                    <label for="delivery_habilitado">Habilitar opción de delivery</label>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="delivery_costo">Costo de Delivery ($)</label>
+                        <input type="number" id="delivery_costo" placeholder="500" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="delivery_gratis_desde">Delivery gratis desde ($)</label>
+                        <input type="number" id="delivery_gratis_desde" placeholder="5000" min="0">
+                        <small>Deja en 0 para no ofrecer delivery gratis</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="config-section">
+                <h2>🎁 Descuentos</h2>
+                
+                <div class="form-check">
+                    <input type="checkbox" id="descuentos_habilitado">
+                    <label for="descuentos_habilitado">Habilitar descuentos automáticos</label>
+                </div>
+
+                <div id="descuentos-container">
+                    <!-- Se llenarán dinámicamente -->
+                </div>
+
+                <button onclick="agregarDescuento()" class="btn-secondary" style="margin-top: 15px;">
+                    ➕ Agregar Descuento
+                </button>
+            </div>
+
+            <div class="config-section">
+                <h2>🛒 Carrito</h2>
+                
+                <div class="form-group">
+                    <label for="carrito_expiracion">Tiempo de expiración del carrito (minutos)</label>
+                    <input type="number" id="carrito_expiracion" placeholder="15" min="5" max="60">
+                    <small>El carrito se vaciará automáticamente después de este tiempo</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT: PALABRAS CLAVE -->
+        <div id="tab-palabras" class="tab-content">
+            <div class="config-section">
+                <h2>🔑 Palabras Clave para Detectar Productos</h2>
+                <p class="section-description">
+                    Agrega palabras que ayuden al bot a identificar cuando un cliente pregunta por productos.
+                    Separa cada palabra con Enter (una por línea).
+                </p>
+                
+                <div class="form-group">
+                    <label for="palabras_productos">Palabras de Productos</label>
+                    <textarea id="palabras_productos" rows="10" placeholder="cuaderno&#10;lapicera&#10;marcador&#10;globo&#10;vela"></textarea>
+                    <small>Una palabra por línea. Ej: cuaderno, lapicera, globo, etc.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICACIÓN -->
+    <div id="notificacion" class="notificacion"></div>
+
+    <script src="js/configuracion.js"></script>
+</body>
+</html>

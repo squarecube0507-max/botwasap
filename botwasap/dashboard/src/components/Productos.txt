@@ -1,0 +1,80 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+function Productos() {
+  const [productos, setProductos] = useState({});
+  const [categoriaActual, setCategoriaActual] = useState(null);
+
+  useEffect(() => {
+    cargarProductos();
+  }, []);
+
+  const cargarProductos = async () => {
+    try {
+      const res = await axios.get('http://localhost:3000/api/productos');
+      setProductos(res.data);
+      if (!categoriaActual && Object.keys(res.data).length > 0) {
+        setCategoriaActual(Object.keys(res.data)[0]);
+      }
+    } catch (error) {
+      console.error('Error al cargar productos:', error);
+    }
+  };
+
+  const categorias = Object.keys(productos);
+
+  const renderProductos = () => {
+    if (!categoriaActual || !productos[categoriaActual]) return null;
+
+    const items = [];
+    for (const [subcategoria, prods] of Object.entries(productos[categoriaActual])) {
+      for (const [nombre, info] of Object.entries(prods)) {
+        items.push({
+          nombre: nombre.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+          precio: info.precio || info.precio_desde,
+          stock: info.stock,
+          unidad: info.unidad || ''
+        });
+      }
+    }
+
+    return items.map((prod, idx) => (
+      <div key={idx} className={`producto-card ${!prod.stock ? 'sin-stock' : ''}`}>
+        <div className="producto-stock">
+          {prod.stock ? '✅' : '❌'}
+        </div>
+        <h4>{prod.nombre}</h4>
+        <div className="producto-precio">
+          ${prod.precio.toLocaleString()} {prod.unidad}
+        </div>
+        <div className="producto-estado">
+          {prod.stock ? 'En stock' : 'Sin stock'}
+        </div>
+      </div>
+    ));
+  };
+
+  return (
+    <div className="productos">
+      <h2>🏷️ Productos</h2>
+
+      <div className="categorias-tabs">
+        {categorias.map(cat => (
+          <button
+            key={cat}
+            className={categoriaActual === cat ? 'activo' : ''}
+            onClick={() => setCategoriaActual(cat)}
+          >
+            {cat.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+          </button>
+        ))}
+      </div>
+
+      <div className="productos-grid">
+        {renderProductos()}
+      </div>
+    </div>
+  );
+}
+
+export default Productos;

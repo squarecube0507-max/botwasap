@@ -1,0 +1,315 @@
+{
+  "clientes": [
+    {
+      "telefono": "5491150246569@c.us",
+      "nombre": "Alberto Livia",
+      "fecha_registro": "2025-11-16T13:19:39.183Z",
+      "ultima_interaccion": "2025-11-17T15:11:51.853Z",
+      "total_pedidos": 3,
+      "total_gastado": 10400,
+      "pedidos": [
+        {
+          "id": "PED-003",
+          "cliente": "5491150246569@c.us",
+          "nombre": "Alberto Livia",
+          "fecha": "2025-11-16T15:49:25.130Z",
+          "productos": [
+            {
+              "nombre": "Lapicera Azul",
+              "cantidad": 5,
+              "precio_unitario": 200,
+              "subtotal": 1000
+            },
+            {
+              "nombre": "Cuaderno A4 Tapa Dura",
+              "cantidad": 2,
+              "precio_unitario": 1500,
+              "subtotal": 3000
+            }
+          ],
+          "subtotal": 4000,
+          "descuento": 0,
+          "delivery": 0,
+          "total": 4000,
+          "tipo_entrega": "retiro",
+          "estado": "confirmado"
+        },
+        {
+          "id": "PED-004",
+          "cliente": "5491150246569@c.us",
+          "nombre": "Alberto Livia",
+          "fecha": "2025-11-16T16:00:57.147Z",
+          "productos": [
+            {
+              "nombre": "Cuaderno A4 Tapa Dura",
+              "cantidad": 2,
+              "precio_unitario": 1500,
+              "subtotal": 3000
+            },
+            {
+              "nombre": "Globo Latex",
+              "cantidad": 2,
+              "precio_unitario": 50,
+              "subtotal": 100
+            }
+          ],
+          "subtotal": 3100,
+          "descuento": 0,
+          "delivery": 0,
+          "total": 3100,
+          "tipo_entrega": "retiro",
+          "estado": "confirmado"
+        },
+        {
+          "id": "PED-005",
+          "cliente": "5491150246569@c.us",
+          "nombre": "Alberto Livia",
+          "fecha": "2025-11-17T15:11:51.850Z",
+          "productos": [
+            {
+              "nombre": "Cartuchera Simple",
+              "cantidad": 3,
+              "precio_unitario": 800,
+              "subtotal": 2400
+            },
+            {
+              "nombre": "Anillado Simple",
+              "cantidad": 3,
+              "precio_unitario": 300,
+              "subtotal": 900
+            }
+          ],
+          "subtotal": 3300,
+          "descuento": 0,
+          "delivery": 0,
+          "total": 3300,
+          "tipo_entrega": "retiro",
+          "estado": "confirmado"
+        }
+      ]
+    },
+    {
+      "telefono": "status@broadcast",
+      "nombre": "Patricia",
+      "fecha_registro": "2025-11-16T13:19:58.821Z",
+      "ultima_interaccion": "2025-11-16T14:46:51.610Z",
+      "total_pedidos": 0,
+      "total_gastado": 0,
+      "pedidos": []
+    },
+    {
+      "telefono": "5491168679222@c.us",
+      "nombre": "florr",
+      "fecha_registro": "2025-11-16T13:21:58.589Z",
+      "ultima_interaccion": "2025-11-19T03:36:38.548Z",
+      "total_pedidos": 1,
+      "total_gastado": 1500,
+      "pedidos": [
+        {
+          "id": "PED-002",
+          "cliente": "5491168679222@c.us",
+          "nombre": "florr",
+          "fecha": "2025-11-16T15:00:07.896Z",
+          "productos": [
+            {
+              "nombre": "Cuaderno A4 Tapa Dura",
+              "cantidad": 1,
+              "precio_unitario": 1500,
+              "subtotal": 1500
+            }
+          ],
+          "subtotal": 1500,
+          "descuento": 0,
+          "delivery": 0,
+          "total": 1500,
+          "tipo_entrega": "retiro",
+          "estado": "confirmado"
+        }
+      ]
+    },
+    {
+      "telefono": "5492920212071@c.us",
+      "nombre": "Livia",
+      "fecha_registro": "2025-11-16T14:20:23.418Z",
+      "ultima_interaccion": "2025-11-19T13:16:54.491Z",
+      "total_pedidos": 0,
+      "total_gastado": 0,
+      "pedidos": []
+    },
+    {
+      "telefono": "5491162034207-1585446539@g.us",
+      "nombre": "Geral",
+      "fecha_registro": "2025-11-16T14:27:30.847Z",
+      "ultima_interaccion": "2025-11-16T14:27:30.847Z",
+      "total_pedidos": 0,
+      "total_gastado": 0,
+      "pedidos": []
+    },
+    {
+      "telefono": "5491160208947@c.us",
+      "nombre": "Patricia",
+      "fecha_registro": "2025-11-16T14:48:14.890Z",
+      "ultima_interaccion": "2025-11-19T21:48:20.522Z",
+      "total_pedidos": 5,
+      "total_gastado": 55735,
+      "pedidos": [
+        {
+          "id": "PED-001",
+          "cliente": "5491160208947@c.us",
+          "nombre": "Patricia",
+          "fecha": "2025-11-16T14:53:16.057Z",
+          "productos": [
+            {
+              "nombre": "Lapicera Azul",
+              "cantidad": 2,
+              "precio_unitario": 200,
+              "subtotal": 400
+            }
+          ],
+          "subtotal": 400,
+          "descuento": 0,
+          "delivery": 0,
+          "total": 400,
+          "tipo_entrega": "retiro",
+          "estado": "confirmado"
+        },
+        {
+          "id": "PED-006",
+          "cliente": "5491160208947@c.us",
+          "nombre": "Patricia",
+          "fecha": "2025-11-18T22:18:07.939Z",
+          "productos": [
+            {
+              "nombre": "Alcohol",
+              "cantidad": 1,
+              "precio_unitario": 5300,
+              "subtotal": 5300
+            }
+          ],
+          "subtotal": 5300,
+          "descuento": 265,
+          "delivery": 0,
+          "total": 5035,
+          "tipo_entrega": "retiro",
+          "estado": "confirmado"
+        },
+        {
+          "id": "PED-007",
+          "cliente": "5491160208947@c.us",
+          "nombre": "Patricia",
+          "fecha": "2025-11-19T02:47:29.842Z",
+          "productos": [
+            {
+              "nombre": "Cuadernillo Universitario",
+              "cantidad": 1,
+              "precio_unitario": 2500,
+              "subtotal": 2500
+            },
+            {
+              "nombre": "Cuadernillo Universitario",
+              "cantidad": 3,
+              "precio_unitario": 2500,
+              "subtotal": 7500
+            }
+          ],
+          "subtotal": 10000,
+          "descuento": 0,
+          "delivery": 0,
+          "total": 10000,
+          "tipo_entrega": "retiro",
+          "estado": "confirmado"
+        },
+        {
+          "id": "PED-008",
+          "cliente": "5491160208947@c.us",
+          "nombre": "Patricia",
+          "fecha": "2025-11-19T13:33:06.917Z",
+          "productos": [
+            {
+              "nombre": "Peluche Mediano",
+              "cantidad": 1,
+              "precio_unitario": 35000,
+              "subtotal": 35000
+            }
+          ],
+          "subtotal": 35000,
+          "descuento": 0,
+          "delivery": 0,
+          "total": 35000,
+          "tipo_entrega": "retiro",
+          "estado": "confirmado"
+        },
+        {
+          "id": "PED-009",
+          "cliente": "5491160208947@c.us",
+          "nombre": "Patricia",
+          "fecha": "2025-11-19T21:12:46.418Z",
+          "productos": [
+            {
+              "nombre": "Alcohol",
+              "cantidad": 1,
+              "precio_unitario": 5300,
+              "subtotal": 5300
+            }
+          ],
+          "subtotal": 5300,
+          "descuento": 0,
+          "delivery": 0,
+          "total": 5300,
+          "tipo_entrega": "retiro",
+          "estado": "confirmado"
+        }
+      ]
+    },
+    {
+      "telefono": "5491169222780@c.us",
+      "nombre": "Ale",
+      "fecha_registro": "2025-11-17T02:25:54.990Z",
+      "ultima_interaccion": "2025-11-17T02:25:55.393Z",
+      "total_pedidos": 0,
+      "total_gastado": 0,
+      "pedidos": []
+    },
+    {
+      "telefono": "5491165178093@c.us",
+      "nombre": "Elias",
+      "fecha_registro": "2025-11-17T02:25:57.163Z",
+      "ultima_interaccion": "2025-11-17T02:25:58.126Z",
+      "total_pedidos": 0,
+      "total_gastado": 0,
+      "pedidos": []
+    },
+    {
+      "telefono": "5491171446542@c.us",
+      "nombre": "ArtuCrack77",
+      "fecha_registro": "2025-11-17T13:32:00.618Z",
+      "ultima_interaccion": "2025-11-17T14:15:38.140Z",
+      "total_pedidos": 0,
+      "total_gastado": 0,
+      "pedidos": []
+    },
+    {
+      "telefono": "5491150648855@c.us",
+      "nombre": "Aquino 🫸🏻",
+      "fecha_registro": "2025-11-18T17:41:39.823Z",
+      "ultima_interaccion": "2025-11-18T17:42:53.406Z",
+      "total_pedidos": 0,
+      "total_gastado": 0,
+      "pedidos": []
+    },
+    {
+      "telefono": "5491127500600@c.us",
+      "nombre": "Mate",
+      "fecha_registro": "2025-11-19T21:53:17.221Z",
+      "ultima_interaccion": "2025-11-19T22:03:10.074Z",
+      "total_pedidos": 0,
+      "total_gastado": 0,
+      "pedidos": []
+    }
+  ],
+  "estadisticas": {
+    "total_clientes": 11,
+    "total_pedidos": 9,
+    "total_vendido": 67635
+  }
+}
